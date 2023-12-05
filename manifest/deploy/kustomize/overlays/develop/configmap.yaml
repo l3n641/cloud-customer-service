@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: session
 kind: ConfigMap
 metadata:
   name: template-single-configmap
