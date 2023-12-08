@@ -8,11 +8,16 @@ import (
 	"context"
 	
 	"cloudCustomerService/api/admin/account"
+	"cloudCustomerService/api/admin/customerServiceAgent"
 	"cloudCustomerService/api/admin/session"
 )
 
 type IAdminAccount interface {
 	UserInfo(ctx context.Context, req *account.UserInfoReq) (res *account.UserInfoRes, err error)
+}
+
+type IAdminCustomerServiceAgent interface {
+	CreateCustomerServiceAgents(ctx context.Context, req *customerServiceAgent.CreateCustomerServiceAgentsReq) (res *customerServiceAgent.CreateCustomerServiceAgentsRes, err error)
 }
 
 type IAdminSession interface {

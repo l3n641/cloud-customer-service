@@ -28,6 +28,7 @@ var (
 					group.Middleware(service.AdminAuthMiddleware().Auth)
 					group.Bind(
 						admin.NewAccount(),
+						admin.NewCustomerServiceAgent(),
 					)
 				})
 			})

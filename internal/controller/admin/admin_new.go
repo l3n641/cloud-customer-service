@@ -1,5 +1,5 @@
 // =================================================================================
-// Code generated and maintained by GoFrame CLI tool. DO NOT EDIT. 
+// Code generated and maintained by GoFrame CLI tool. DO NOT EDIT.
 // =================================================================================
 
 package admin
@@ -18,5 +18,11 @@ type ControllerAccount struct{}
 
 func NewAccount() admin.IAdminAccount {
 	return &ControllerAccount{}
+}
+
+type ControllerCustomerServiceAgent struct{}
+
+func NewCustomerServiceAgent() admin.IAdminCustomerServiceAgent {
+	return &ControllerCustomerServiceAgent{}
 }
 
