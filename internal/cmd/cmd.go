@@ -18,14 +18,14 @@ var (
 			s := g.Server()
 			s.Group("/admin", func(group *ghttp.RouterGroup) {
 				group.Middleware(
-					service.AuthMiddleware().AdminCtx,
+					service.AdminAuthMiddleware().Ctx,
 					ghttp.MiddlewareHandlerResponse)
 
 				group.Bind(
 					admin.NewSession().Login,
 				)
 				group.Group("/", func(group *ghttp.RouterGroup) {
-					group.Middleware(service.AuthMiddleware().AdminAuth)
+					group.Middleware(service.AdminAuthMiddleware().Auth)
 					group.Bind(
 						admin.NewAccount(),
 					)

@@ -7,6 +7,7 @@ package service
 
 import (
 	"cloudCustomerService/internal/model"
+	"cloudCustomerService/internal/model/entity"
 	"context"
 )
 
@@ -14,6 +15,7 @@ type (
 	IAdmin interface {
 		GetIdentityKey() string
 		Login(ctx context.Context, in *model.AdminLoginInput) (*model.AdminLoginOutput, error)
+		GetUserInfo(ctx context.Context, id int) (user *entity.Admins, err error)
 	}
 )
 
