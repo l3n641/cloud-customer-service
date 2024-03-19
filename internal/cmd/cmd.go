@@ -25,9 +25,13 @@ var (
 				group.Bind(
 					admin.NewSession().Login,
 				)
-				s.Group("/", func(group *ghttp.RouterGroup) {
+
+				group.Group("/", func(group *ghttp.RouterGroup) {
 					group.Middleware(
 						middlewares.AdminMiddleware().Auth,
+					)
+					group.Bind(
+						admin.NewAccount(),
 					)
 				})
 			})

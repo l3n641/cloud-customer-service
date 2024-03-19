@@ -13,3 +13,9 @@ type ControllerSession struct{}
 func NewSession() admin.IAdminSession {
 	return &ControllerSession{}
 }
+type ControllerAccount struct{}
+
+func NewAccount() admin.IAdminAccount {
+	return &ControllerAccount{}
+}
+
