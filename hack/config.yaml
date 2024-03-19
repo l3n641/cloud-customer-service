@@ -6,3 +6,9 @@ gfcli:
     build: "-a amd64 -s linux -p temp -ew"
     tagPrefixes:
       - my.image.pub/my-app
+
+  gen:
+    dao:
+      - link: "mysql:root:root@tcp(127.0.0.1:3306)/could_customer_server"
+        tables: "admins"
+

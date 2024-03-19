@@ -1,13 +1,12 @@
 package cmd
 
 import (
+	"cloudCustomerService/internal/controller/admin"
+	"cloudCustomerService/internal/middlewares"
 	"context"
-
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
-
-	"cloudCustomerService/internal/controller/hello"
 )
 
 var (
@@ -17,12 +16,22 @@ var (
 		Brief: "start http server",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
 			s := g.Server()
-			s.Group("/", func(group *ghttp.RouterGroup) {
-				group.Middleware(ghttp.MiddlewareHandlerResponse)
-				group.Bind(
-					hello.NewV1(),
+			s.Group("/admin", func(group *ghttp.RouterGroup) {
+				group.Middleware(
+					middlewares.AdminMiddleware().CORS,
+					ghttp.MiddlewareHandlerResponse,
 				)
+
+				group.Bind(
+					admin.NewSession().Login,
+				)
+				s.Group("/", func(group *ghttp.RouterGroup) {
+					group.Middleware(
+						middlewares.AdminMiddleware().Auth,
+					)
+				})
 			})
+
 			s.Run()
 			return nil
 		},
