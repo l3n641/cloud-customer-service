@@ -9,7 +9,7 @@ import (
 	"github.com/gogf/gf/v2/os/gtime"
 )
 
-// Admins is the golang structure of table admins for DAO operations like Where/Data.
+// Admins is the golang structure of table admins for DAO operations like Where/Item.
 type Admins struct {
 	g.Meta      `orm:"table:admins, do:true"`
 	Id          interface{} //

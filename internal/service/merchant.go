@@ -13,6 +13,7 @@ import (
 type (
 	IMerchant interface {
 		CreateMerchant(ctx context.Context, in *model.MerchantCreateInput) (bool, error)
+		SearchMerchant(ctx context.Context, in *model.MerchantSearchInput) (*model.SearchMerchantOutput, error)
 	}
 )
 
