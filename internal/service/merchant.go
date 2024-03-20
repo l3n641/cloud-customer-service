@@ -7,12 +7,14 @@ package service
 
 import (
 	"cloudCustomerService/internal/model"
+	"cloudCustomerService/internal/model/entity"
 	"context"
 )
 
 type (
 	IMerchant interface {
 		CreateMerchant(ctx context.Context, in *model.MerchantCreateInput) (bool, error)
+		GetDetailById(ctx context.Context, id int) (*entity.Merchants, error)
 		SearchMerchant(ctx context.Context, in *model.MerchantSearchInput) (*model.SearchMerchantOutput, error)
 	}
 )

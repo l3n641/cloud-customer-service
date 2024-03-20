@@ -18,6 +18,7 @@ type IAdminAccount interface {
 
 type IAdminMerchant interface {
 	CreateMerchant(ctx context.Context, req *merchant.CreateMerchantReq) (res *merchant.CreateMerchantRes, err error)
+	DetailMerchant(ctx context.Context, req *merchant.DetailMerchantReq) (res *merchant.DetailMerchantRes, err error)
 	SearchMerchant(ctx context.Context, req *merchant.SearchMerchantReq) (res *merchant.SearchMerchantRes, err error)
 }
 
