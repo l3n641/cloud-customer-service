@@ -32,6 +32,7 @@ var (
 					)
 					group.Bind(
 						admin.NewAccount(),
+						admin.NewMerchant(),
 					)
 				})
 			})

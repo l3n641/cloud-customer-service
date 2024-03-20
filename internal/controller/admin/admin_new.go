@@ -19,3 +19,9 @@ func NewAccount() admin.IAdminAccount {
 	return &ControllerAccount{}
 }
 
+type ControllerMerchant struct{}
+
+func NewMerchant() admin.IAdminMerchant {
+	return &ControllerMerchant{}
+}
+

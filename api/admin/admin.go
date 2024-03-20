@@ -8,11 +8,16 @@ import (
 	"context"
 	
 	"cloudCustomerService/api/admin/account"
+	"cloudCustomerService/api/admin/merchant"
 	"cloudCustomerService/api/admin/session"
 )
 
 type IAdminAccount interface {
 	UserInfo(ctx context.Context, req *account.UserInfoReq) (res *account.UserInfoRes, err error)
+}
+
+type IAdminMerchant interface {
+	CreateMerchant(ctx context.Context, req *merchant.CreateMerchantReq) (res *merchant.CreateMerchantRes, err error)
 }
 
 type IAdminSession interface {
