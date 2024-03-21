@@ -14,6 +14,7 @@ type (
 	IChatSupport interface {
 		// CreteChatSupport 创建客服
 		CreteChatSupport(ctx context.Context, in *model.ChatSupportCreateInput) (err error)
+		SearchChatSupport(ctx context.Context, in *model.ChatSupportSearchInput) (*model.ChatSupportSearchOutput, error)
 	}
 )
 

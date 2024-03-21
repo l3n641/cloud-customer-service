@@ -19,4 +19,5 @@ type ChatSupports struct {
 	LastLoginAt *gtime.Time `json:"lastLoginAt" ` // 最后登录时间
 	LastLoginIp string      `json:"lastLoginIp" ` // 最后登录ip
 	IsOnline    int         `json:"isOnline"    ` // 是否在线 1-在线 0-不在线
+	Status      int         `json:"status"      ` // 账户状态 0-冻结 1-正常
 }

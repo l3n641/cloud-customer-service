@@ -11,3 +11,12 @@ type PaginationRes struct {
 	Page     int         `json:"page" dc:"分页号码"`
 	PageSize int         `json:"page_size" dc:"分页数量"`
 }
+
+type OrderReq struct {
+	SortField string `json:"sort_field" in:"query" d:"id" dc:"分页号码，默认id"`
+	OrderBy   string `json:"order_by" in:"query" d:"desc" dc:"排序方向，默认倒序"`
+}
+
+func (r *OrderReq) String() string {
+	return r.SortField + " " + r.OrderBy
+}
