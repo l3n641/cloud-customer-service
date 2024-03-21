@@ -30,3 +30,10 @@ type MerchantItem struct {
 	MerchantName string `json:"merchant_name"` //商户名称
 
 }
+
+// MerchantUpdateInput 更新商户信息
+type MerchantUpdateInput struct {
+	Id           int
+	MerchantId   string // 商户id
+	MerchantName string // 商户名称
+}

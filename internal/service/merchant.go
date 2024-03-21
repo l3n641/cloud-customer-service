@@ -16,6 +16,7 @@ type (
 		CreateMerchant(ctx context.Context, in *model.MerchantCreateInput) (bool, error)
 		GetDetailById(ctx context.Context, id int) (*entity.Merchants, error)
 		SearchMerchant(ctx context.Context, in *model.MerchantSearchInput) (*model.SearchMerchantOutput, error)
+		UpdateMerchant(ctx context.Context, in *model.MerchantUpdateInput) (bool, error)
 	}
 )
 
