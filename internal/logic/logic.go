@@ -6,5 +6,6 @@ package logic
 
 import (
 	_ "cloudCustomerService/internal/logic/admin"
+	_ "cloudCustomerService/internal/logic/chatSupport"
 	_ "cloudCustomerService/internal/logic/merchant"
 )

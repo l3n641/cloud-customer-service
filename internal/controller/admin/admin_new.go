@@ -25,3 +25,10 @@ func NewMerchant() admin.IAdminMerchant {
 	return &ControllerMerchant{}
 }
 
+type ControllerChat_support struct{}
+type ControllerChatSupport struct{}
+
+func NewChatSupport() admin.IAdminChatSupport {
+	return &ControllerChatSupport{}
+}
+

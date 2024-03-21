@@ -10,5 +10,5 @@ gfcli:
   gen:
     dao:
       - link: "mysql:root:root@tcp(127.0.0.1:3306)/could_customer_server"
-        tables: "admins,merchants"
+        tables: "admins,merchants,chat_supports,merchant_group"
 
