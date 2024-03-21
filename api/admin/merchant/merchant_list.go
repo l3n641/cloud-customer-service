@@ -6,7 +6,7 @@ import (
 )
 
 type SearchMerchantReq struct {
-	g.Meta `path:"/merchant" method:"get" summary:"查看商户" tags:"查看商户"`
+	g.Meta `path:"/merchant" method:"get" summary:"查看商户" tags:"管理员管理商户"`
 
 	SearchFields
 	api.PaginationReq

@@ -5,7 +5,7 @@ import (
 )
 
 type DetailMerchantReq struct {
-	g.Meta `path:"/merchant/{Id}" method:"get" summary:"获取商户详细信息" tags:"商户详细信息"`
+	g.Meta `path:"/merchant/{Id}" method:"get" summary:"获取商户详细信息" tags:"管理员管理商户"`
 	Id     int `json:"id" dc:"商户记录id"`
 }
 
