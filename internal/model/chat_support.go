@@ -58,3 +58,11 @@ type ChatSupportDetail struct {
 type ChatSupportMerchant struct {
 	MerchantId int `json:"merchant_id"`
 }
+
+// ChatSupportUpdateInput 更新商户信息
+type ChatSupportUpdateInput struct {
+	Id            int
+	Password      string // 密码(明文)
+	NickName      string // 昵称
+	MerchantGroup []int  //要关联的商户
+}
