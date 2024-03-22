@@ -49,3 +49,12 @@ type ChatSupportItem struct {
 	IsOnline    int         `json:"is_online"`
 	Status      int         `json:"status"`
 }
+
+type ChatSupportDetail struct {
+	ChatSupportItem
+	MerchantGroup []*ChatSupportMerchant
+}
+
+type ChatSupportMerchant struct {
+	MerchantId int `json:"merchant_id"`
+}

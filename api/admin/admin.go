@@ -18,6 +18,7 @@ type IAdminAccount interface {
 }
 
 type IAdminChatSupport interface {
+	DetailChatSupport(ctx context.Context, req *chatSupport.DetailChatSupportReq) (res *chatSupport.DetailChatSupportRes, err error)
 	SearchChatSupport(ctx context.Context, req *chatSupport.SearchChatSupportReq) (res *chatSupport.SearchChatSupportRes, err error)
 	CreateChatSupport(ctx context.Context, req *chatSupport.CreateChatSupportReq) (res *chatSupport.CreateChatSupportRes, err error)
 }
