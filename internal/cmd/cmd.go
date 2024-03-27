@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"cloudCustomerService/internal/controller/admin"
+	"cloudCustomerService/internal/controller/client"
 	"cloudCustomerService/internal/middlewares"
 	"context"
 	"github.com/gogf/gf/v2/frame/g"
@@ -36,6 +37,18 @@ var (
 						admin.NewChatSupport(),
 					)
 				})
+			})
+
+			s.Group("/client", func(group *ghttp.RouterGroup) {
+				group.Middleware(
+					middlewares.ClientMiddleware().CORS,
+					ghttp.MiddlewareHandlerResponse,
+				)
+
+				group.Bind(
+					client.NewSession().Login,
+				)
+
 			})
 
 			s.Run()
