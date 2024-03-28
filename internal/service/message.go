@@ -13,6 +13,7 @@ import (
 type (
 	IMessage interface {
 		ClientSendMessage(ctx context.Context, in *model.MessageAddInput) (int64, error)
+		GetUnreadMessageQuantity(ctx context.Context, senderType, ticketId int) (int, error)
 	}
 )
 
