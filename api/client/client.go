@@ -12,6 +12,7 @@ import (
 )
 
 type IClientMessage interface {
+	GetMessageList(ctx context.Context, req *message.GetMessageListReq) (res *message.GetMessageListRes, err error)
 	GetUnreadMessageQuantity(ctx context.Context, req *message.GetUnreadMessageQuantityReq) (res *message.GetUnreadMessageQuantityRes, err error)
 	SendMessage(ctx context.Context, req *message.SendMessageReq) (res *message.SendMessageRes, err error)
 }
