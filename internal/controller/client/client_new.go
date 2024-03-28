@@ -14,3 +14,9 @@ func NewSession() client.IClientSession {
 	return &ControllerSession{}
 }
 
+type ControllerMessage struct{}
+
+func NewMessage() client.IClientMessage {
+	return &ControllerMessage{}
+}
+

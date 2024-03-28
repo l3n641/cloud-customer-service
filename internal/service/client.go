@@ -7,11 +7,13 @@ package service
 
 import (
 	"cloudCustomerService/internal/model"
+	"cloudCustomerService/internal/model/entity"
 	"context"
 )
 
 type (
 	IClient interface {
+		GetClientById(ctx context.Context, id int) (*entity.Clients, error)
 		GetIdentityKey() string
 		Login(ctx context.Context, in *model.ClientLoginInput) (*model.ClientLoginOutput, error)
 	}

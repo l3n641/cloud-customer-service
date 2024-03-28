@@ -9,4 +9,6 @@ import (
 	_ "cloudCustomerService/internal/logic/chatSupport"
 	_ "cloudCustomerService/internal/logic/client"
 	_ "cloudCustomerService/internal/logic/merchant"
+	_ "cloudCustomerService/internal/logic/message"
+	_ "cloudCustomerService/internal/logic/ticket"
 )

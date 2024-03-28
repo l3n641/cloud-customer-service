@@ -49,6 +49,15 @@ var (
 					client.NewSession().Login,
 				)
 
+				group.Group("/", func(group *ghttp.RouterGroup) {
+					group.Middleware(
+						middlewares.ClientMiddleware().Auth,
+					)
+					group.Bind(
+						client.NewMessage(),
+					)
+				})
+
 			})
 
 			s.Run()

@@ -7,11 +7,13 @@ package service
 
 import (
 	"cloudCustomerService/internal/model"
+	"cloudCustomerService/internal/model/entity"
 	"context"
 )
 
 type (
 	IChatSupport interface {
+		AssignChatSupport(ctx context.Context, merchantId string) (*entity.ChatSupports, error)
 		// CreteChatSupport 创建客服
 		CreteChatSupport(ctx context.Context, in *model.ChatSupportCreateInput) (err error)
 		GetDetailById(ctx context.Context, id int) (*model.ChatSupportDetail, error)
