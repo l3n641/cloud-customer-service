@@ -18,7 +18,9 @@ type Messages struct {
 	SenderType    interface{} // 发送类型:1-客人发送给客服，2-客服发送给客人
 	ClientId      interface{} // 顾客的id
 	ChatSupportId interface{} // 客服的id
+	MsgType       interface{} // 消息类型 1-文本消息
 	Content       interface{} // 消息内容
 	IsRead        interface{} // 消息是否被对方读取:0-未读，1-已读
 	ReadTime      *gtime.Time // 读取消息的时间
+	RefererUrl    interface{} // 客户发送消息时候所在的页面
 }

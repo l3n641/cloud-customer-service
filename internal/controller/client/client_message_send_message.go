@@ -47,8 +47,10 @@ func (c *ControllerMessage) SendMessage(ctx context.Context, req *message.SendMe
 		ClientId:      clientId,
 		ChatSupportId: chatSupportId,
 		Content:       req.Content,
+		MsgType:       req.MsgType,
 		SenderType:    consts.SendMessageToChatSupport,
 		TicketId:      tickerId,
+		RefererUrl:    req.RefererUrl,
 	})
 
 	return &message.SendMessageRes{}, err

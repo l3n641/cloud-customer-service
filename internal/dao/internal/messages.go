@@ -26,9 +26,11 @@ type MessagesColumns struct {
 	SenderType    string // 发送类型:1-客人发送给客服，2-客服发送给客人
 	ClientId      string // 顾客的id
 	ChatSupportId string // 客服的id
+	MsgType       string // 消息类型 1-文本消息
 	Content       string // 消息内容
 	IsRead        string // 消息是否被对方读取:0-未读，1-已读
 	ReadTime      string // 读取消息的时间
+	RefererUrl    string // 客户发送消息时候所在的页面
 }
 
 // messagesColumns holds the columns for table messages.
@@ -39,9 +41,11 @@ var messagesColumns = MessagesColumns{
 	SenderType:    "sender_type",
 	ClientId:      "client_id",
 	ChatSupportId: "chat_support_id",
+	MsgType:       "msg_type",
 	Content:       "content",
 	IsRead:        "is_read",
 	ReadTime:      "read_time",
+	RefererUrl:    "referer_url",
 }
 
 // NewMessagesDao creates and returns a new DAO object for table data access.

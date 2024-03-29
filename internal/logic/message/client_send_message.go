@@ -27,6 +27,8 @@ func (s *sMessage) ClientSendMessage(ctx context.Context, in *model.MessageAddIn
 		ClientId:      in.ClientId,
 		ChatSupportId: in.ChatSupportId,
 		Content:       in.Content,
+		RefererUrl:    in.RefererUrl,
+		MsgType:       in.MsgType,
 	}
 	result, _ := dao.Messages.Ctx(ctx).Data(message).Insert()
 	return result.LastInsertId()

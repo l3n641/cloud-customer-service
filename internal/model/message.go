@@ -9,7 +9,9 @@ type MessageAddInput struct {
 	SenderType    int    // 发送类型
 	ClientId      int    // 客户id
 	ChatSupportId int    // 客户id
+	MsgType       int    // 消息类型
 	Content       string // 内容
+	RefererUrl    string // 客户当前所在页面
 }
 
 // MessageListInput 消息列表
@@ -31,5 +33,6 @@ type ClientMessageListOutput struct {
 type ClientMessageItem struct {
 	Id         int    `json:"id" description:"消息id"`
 	SenderType int    `json:"sender_type" description:"发送类型 1-顾客发送给客服,2-客服发送给客人"`
+	MsgType    string `json:"msg_type" description:"消息类型: 1-文本消息"`
 	Content    string `json:"content" description:"消息内容"`
 }
