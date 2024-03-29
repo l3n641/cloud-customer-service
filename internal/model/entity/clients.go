@@ -17,7 +17,7 @@ type Clients struct {
 	Phone               string      `json:"phone"               ` //
 	MerchantId          string      `json:"merchantId"          ` //
 	Domain              string      `json:"domain"              ` //
-	LastLoginTime       int         `json:"lastLoginTime"       ` //
+	LastLoginTime       *gtime.Time `json:"lastLoginTime"       ` //
 	LastSendMessageTime int         `json:"lastSendMessageTime" ` //
 	Ip                  string      `json:"ip"                  ` //
 	BrowserFingerprint  string      `json:"browserFingerprint"  ` //

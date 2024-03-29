@@ -8,7 +8,7 @@ import (
 	"cloudCustomerService/internal/service"
 	"context"
 	"github.com/gogf/gf/v2/frame/g"
-	"time"
+	"github.com/gogf/gf/v2/os/gtime"
 )
 
 type (
@@ -69,12 +69,9 @@ func (s *sClient) Login(ctx context.Context, in *model.ClientLoginInput) (*model
 		userId = int64(client.Id)
 	}
 
-	currentTime := time.Now()
-	timeString := currentTime.Format("2006-01-02 15:04:05")
-
 	dao.Clients.Ctx(ctx).Data(g.Map{
 		dao.Clients.Columns().Ip:            in.Ip,
-		dao.Clients.Columns().LastLoginTime: timeString,
+		dao.Clients.Columns().LastLoginTime: gtime.Now(),
 		dao.Clients.Columns().UserAgent:     in.UserAgent,
 		dao.Clients.Columns().Lang:          in.Lang,
 	}).Where(g.Map{

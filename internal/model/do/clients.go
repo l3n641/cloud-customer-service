@@ -19,7 +19,7 @@ type Clients struct {
 	Phone               interface{} //
 	MerchantId          interface{} //
 	Domain              interface{} //
-	LastLoginTime       interface{} //
+	LastLoginTime       *gtime.Time //
 	LastSendMessageTime interface{} //
 	Ip                  interface{} //
 	BrowserFingerprint  interface{} //
