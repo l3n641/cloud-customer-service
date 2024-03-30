@@ -21,6 +21,10 @@ func New() *sChatSupport {
 	return &sChatSupport{}
 }
 
+func (s *sChatSupport) GetIdentityKey() string {
+	return "chat_support_id"
+}
+
 func (s *sChatSupport) isEmailExist(ctx context.Context, email string) (bool, error) {
 	count, err := dao.ChatSupports.Ctx(ctx).Where(g.Map{
 		dao.ChatSupports.Columns().Email: email,

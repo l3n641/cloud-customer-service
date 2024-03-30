@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"cloudCustomerService/internal/controller/admin"
+	"cloudCustomerService/internal/controller/chatSupport"
 	"cloudCustomerService/internal/controller/client"
 	"cloudCustomerService/internal/middlewares"
 	"context"
@@ -56,6 +57,25 @@ var (
 					group.Bind(
 						client.NewMessage(),
 					)
+				})
+
+			})
+
+			s.Group("/chat-support", func(group *ghttp.RouterGroup) {
+				group.Middleware(
+					middlewares.ChatSupportMiddleware().CORS,
+					ghttp.MiddlewareHandlerResponse,
+				)
+
+				group.Bind(
+					chatSupport.NewSession().Login,
+				)
+
+				group.Group("/", func(group *ghttp.RouterGroup) {
+					group.Middleware(
+						middlewares.ChatSupportMiddleware().Auth,
+					)
+					group.Bind()
 				})
 
 			})

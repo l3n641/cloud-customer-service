@@ -2,6 +2,7 @@ package model
 
 import (
 	"github.com/gogf/gf/v2/container/gvar"
+	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gtime"
 )
 
@@ -65,4 +66,15 @@ type ChatSupportUpdateInput struct {
 	Password      string // 密码(明文)
 	NickName      string // 昵称
 	MerchantGroup []int  //要关联的商户
+}
+
+// ChatSupportLoginInput 用户登录
+type ChatSupportLoginInput struct {
+	Email    string // 用户名
+	Password string // 密码(明文)
+	Ip       string //
+}
+
+type ChatSupportLoginOutput struct {
+	Data g.Map
 }

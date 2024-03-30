@@ -14,9 +14,11 @@ import (
 type (
 	IChatSupport interface {
 		AssignChatSupport(ctx context.Context, merchantId string) (*entity.ChatSupports, error)
+		GetIdentityKey() string
 		// CreteChatSupport 创建客服
 		CreteChatSupport(ctx context.Context, in *model.ChatSupportCreateInput) (err error)
 		GetDetailById(ctx context.Context, id int) (*model.ChatSupportDetail, error)
+		Login(ctx context.Context, in *model.ChatSupportLoginInput) (*model.ChatSupportLoginOutput, error)
 		SearchChatSupport(ctx context.Context, in *model.ChatSupportSearchInput) (*model.ChatSupportSearchOutput, error)
 		UpdateChatSupport(ctx context.Context, in *model.ChatSupportUpdateInput) error
 	}
