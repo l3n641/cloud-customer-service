@@ -33,6 +33,7 @@ type IAdminMerchant interface {
 
 type IAdminSession interface {
 	Login(ctx context.Context, req *session.LoginReq) (res *session.LoginRes, err error)
+	SignOut(ctx context.Context, req *session.SignOutReq) (res *session.SignOutRes, err error)
 }
 
 

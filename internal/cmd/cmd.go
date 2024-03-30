@@ -36,6 +36,7 @@ var (
 						admin.NewAccount(),
 						admin.NewMerchant(),
 						admin.NewChatSupport(),
+						admin.NewSession().SignOut,
 					)
 				})
 			})
