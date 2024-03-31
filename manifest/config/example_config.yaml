@@ -1,0 +1,21 @@
+server:
+  address: ":9876"
+  openapiPath: "/api.json"
+  swaggerPath: "/swagger"
+
+logger:
+  level: "all"
+  stdout: true
+
+database:
+  logger:
+    path: "/var/log/gf-app/sql"
+    level: "all"
+    stdout: true
+  default:
+    link: "mysql:root:root@tcp(127.0.0.1:3306)/could_customer_server"
+    debug: true
+
+jwt:
+  realm: cloud_customer_service
+  secretKey: yhblsqtchblqqxmbdwwlc
