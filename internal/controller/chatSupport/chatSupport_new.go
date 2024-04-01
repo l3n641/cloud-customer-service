@@ -19,3 +19,9 @@ func NewAccount() chatSupport.IChatSupportAccount {
 	return &ControllerAccount{}
 }
 
+type ControllerTicket struct{}
+
+func NewTicket() chatSupport.IChatSupportTicket {
+	return &ControllerTicket{}
+}
+

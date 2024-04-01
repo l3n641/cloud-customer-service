@@ -79,6 +79,7 @@ var (
 					group.Bind(
 						chatSupport.NewAccount(),
 						chatSupport.NewSession().SignOut,
+						chatSupport.NewTicket(),
 					)
 				})
 

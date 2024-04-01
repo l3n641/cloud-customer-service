@@ -9,6 +9,7 @@ import (
 	
 	"cloudCustomerService/api/chatSupport/account"
 	"cloudCustomerService/api/chatSupport/session"
+	"cloudCustomerService/api/chatSupport/ticket"
 )
 
 type IChatSupportAccount interface {
@@ -18,6 +19,10 @@ type IChatSupportAccount interface {
 type IChatSupportSession interface {
 	Login(ctx context.Context, req *session.LoginReq) (res *session.LoginRes, err error)
 	SignOut(ctx context.Context, req *session.SignOutReq) (res *session.SignOutRes, err error)
+}
+
+type IChatSupportTicket interface {
+	SearchTicket(ctx context.Context, req *ticket.SearchTicketReq) (res *ticket.SearchTicketRes, err error)
 }
 
 
