@@ -19,3 +19,11 @@ func (s *sTicket) UpdateTicketByClient(ctx context.Context, ticketId int) (int64
 	}).Where(dao.Tickets.Columns().Id, ticketId).Update()
 	return result.RowsAffected()
 }
+
+func (s *sTicket) UpdateTicketByChatSupport(ctx context.Context, ticketId int) (int64, error) {
+
+	result, _ := dao.Tickets.Ctx(ctx).Data(g.Map{
+		dao.Tickets.Columns().CsUnreadMsgCount: 0,
+	}).Where(dao.Tickets.Columns().Id, ticketId).Update()
+	return result.RowsAffected()
+}

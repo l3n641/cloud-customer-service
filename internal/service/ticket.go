@@ -15,8 +15,10 @@ type (
 	ITicket interface {
 		CreateTicket(ctx context.Context, clientId int, chatSupportId int) (int, error)
 		HasTicket(ctx context.Context, clientId int) (*entity.Tickets, error)
+		ChatSupportHasTicket(ctx context.Context, chatSupportId, ticketId int) (*entity.Tickets, error)
 		SearchTicket(ctx context.Context, in *model.TicketSearchInput) (*model.TicketSearchOutput, error)
 		UpdateTicketByClient(ctx context.Context, ticketId int) (int64, error)
+		UpdateTicketByChatSupport(ctx context.Context, ticketId int) (int64, error)
 	}
 )
 

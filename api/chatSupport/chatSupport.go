@@ -8,12 +8,17 @@ import (
 	"context"
 	
 	"cloudCustomerService/api/chatSupport/account"
+	"cloudCustomerService/api/chatSupport/message"
 	"cloudCustomerService/api/chatSupport/session"
 	"cloudCustomerService/api/chatSupport/ticket"
 )
 
 type IChatSupportAccount interface {
 	UserInfo(ctx context.Context, req *account.UserInfoReq) (res *account.UserInfoRes, err error)
+}
+
+type IChatSupportMessage interface {
+	GetMessageList(ctx context.Context, req *message.GetMessageListReq) (res *message.GetMessageListRes, err error)
 }
 
 type IChatSupportSession interface {

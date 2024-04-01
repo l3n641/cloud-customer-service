@@ -80,6 +80,7 @@ var (
 						chatSupport.NewAccount(),
 						chatSupport.NewSession().SignOut,
 						chatSupport.NewTicket(),
+						chatSupport.NewMessage(),
 					)
 				})
 

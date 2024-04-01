@@ -25,3 +25,9 @@ func NewTicket() chatSupport.IChatSupportTicket {
 	return &ControllerTicket{}
 }
 
+type ControllerMessage struct{}
+
+func NewMessage() chatSupport.IChatSupportMessage {
+	return &ControllerMessage{}
+}
+
