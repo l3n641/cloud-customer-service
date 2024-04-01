@@ -21,6 +21,7 @@ type (
 		Login(ctx context.Context, in *model.ChatSupportLoginInput) (*model.ChatSupportLoginOutput, error)
 		SearchChatSupport(ctx context.Context, in *model.ChatSupportSearchInput) (*model.ChatSupportSearchOutput, error)
 		UpdateChatSupport(ctx context.Context, in *model.ChatSupportUpdateInput) error
+		GetUserInfo(ctx context.Context, id int) (user *entity.ChatSupports, err error)
 	}
 )
 

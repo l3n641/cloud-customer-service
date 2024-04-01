@@ -13,3 +13,9 @@ type ControllerSession struct{}
 func NewSession() chatSupport.IChatSupportSession {
 	return &ControllerSession{}
 }
+type ControllerAccount struct{}
+
+func NewAccount() chatSupport.IChatSupportAccount {
+	return &ControllerAccount{}
+}
+

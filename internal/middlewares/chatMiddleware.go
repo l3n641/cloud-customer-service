@@ -8,8 +8,8 @@ type chatSupportMiddlewareService struct{}
 
 var chatSupportMiddleware = chatSupportMiddlewareService{}
 
-func ChatSupportMiddleware() *clientMiddlewareService {
-	return &clientMiddleware
+func ChatSupportMiddleware() *chatSupportMiddlewareService {
+	return &chatSupportMiddleware
 }
 
 func (s *chatSupportMiddlewareService) CORS(r *ghttp.Request) {

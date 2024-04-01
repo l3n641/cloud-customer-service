@@ -76,7 +76,9 @@ var (
 					group.Middleware(
 						middlewares.ChatSupportMiddleware().Auth,
 					)
-					group.Bind()
+					group.Bind(
+						chatSupport.NewAccount(),
+					)
 				})
 
 			})

@@ -7,8 +7,13 @@ package chatSupport
 import (
 	"context"
 	
+	"cloudCustomerService/api/chatSupport/account"
 	"cloudCustomerService/api/chatSupport/session"
 )
+
+type IChatSupportAccount interface {
+	UserInfo(ctx context.Context, req *account.UserInfoReq) (res *account.UserInfoRes, err error)
+}
 
 type IChatSupportSession interface {
 	Login(ctx context.Context, req *session.LoginReq) (res *session.LoginRes, err error)
