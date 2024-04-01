@@ -16,3 +16,10 @@ type LoginRes struct {
 	Token      string    `json:"token"`
 	ExpireTime time.Time `json:"expire_time"`
 }
+
+type SignOutReq struct {
+	g.Meta `path:"/session" method:"delete" summary:"客服退出登录" tags:"客服模块"`
+}
+
+type SignOutRes struct {
+}
