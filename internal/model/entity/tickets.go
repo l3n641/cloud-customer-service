@@ -10,9 +10,10 @@ import (
 
 // Tickets is the golang structure for table tickets.
 type Tickets struct {
-	Id              int         `json:"id"              ` //
-	CreateAt        *gtime.Time `json:"createAt"        ` //
-	ClientId        int         `json:"clientId"        ` // 客人id
-	ChatSupportId   int         `json:"chatSupportId"   ` // 客服id
-	LastMessageTime *gtime.Time `json:"lastMessageTime" ` // 最后发送消息时间
+	Id               int         `json:"id"               ` //
+	CreateAt         *gtime.Time `json:"createAt"         ` //
+	ClientId         int         `json:"clientId"         ` // 客人id
+	ChatSupportId    int         `json:"chatSupportId"    ` // 客服id
+	LastMessageTime  *gtime.Time `json:"lastMessageTime"  ` // 最后发送消息时间
+	CsUnreadMsgCount int         `json:"csUnreadMsgCount" ` // 客服未读消息数
 }

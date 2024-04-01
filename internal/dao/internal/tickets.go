@@ -20,20 +20,22 @@ type TicketsDao struct {
 
 // TicketsColumns defines and stores column names for table tickets.
 type TicketsColumns struct {
-	Id              string //
-	CreateAt        string //
-	ClientId        string // 客人id
-	ChatSupportId   string // 客服id
-	LastMessageTime string // 最后发送消息时间
+	Id               string //
+	CreateAt         string //
+	ClientId         string // 客人id
+	ChatSupportId    string // 客服id
+	LastMessageTime  string // 最后发送消息时间
+	CsUnreadMsgCount string // 客服未读消息数
 }
 
 // ticketsColumns holds the columns for table tickets.
 var ticketsColumns = TicketsColumns{
-	Id:              "id",
-	CreateAt:        "create_at",
-	ClientId:        "client_id",
-	ChatSupportId:   "chat_support_id",
-	LastMessageTime: "last_message_time",
+	Id:               "id",
+	CreateAt:         "create_at",
+	ClientId:         "client_id",
+	ChatSupportId:    "chat_support_id",
+	LastMessageTime:  "last_message_time",
+	CsUnreadMsgCount: "cs_unread_msg_count",
 }
 
 // NewTicketsDao creates and returns a new DAO object for table data access.

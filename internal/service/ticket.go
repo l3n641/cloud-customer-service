@@ -14,6 +14,7 @@ type (
 	ITicket interface {
 		CreateTicket(ctx context.Context, clientId int, chatSupportId int) (int, error)
 		HasTicket(ctx context.Context, clientId int) (*entity.Tickets, error)
+		UpdateTicketByClient(ctx context.Context, ticketId int) (int64, error)
 	}
 )
 

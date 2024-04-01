@@ -53,6 +53,8 @@ func (c *ControllerMessage) SendMessage(ctx context.Context, req *message.SendMe
 		RefererUrl:    req.RefererUrl,
 	})
 
+	service.Ticket().UpdateTicketByClient(ctx, tickerId)
+
 	return &message.SendMessageRes{}, err
 
 }
