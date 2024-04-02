@@ -43,7 +43,7 @@ func (c *ControllerMessage) SendMessage(ctx context.Context, req *message.SendMe
 		chatSupportId = ticket.ChatSupportId
 	}
 
-	service.Message().SendMessage(ctx, &model.MessageAddInput{
+	msg, err := service.Message().SendMessage(ctx, &model.MessageAddInput{
 		ClientId:      clientId,
 		ChatSupportId: chatSupportId,
 		Content:       req.Content,
@@ -54,7 +54,13 @@ func (c *ControllerMessage) SendMessage(ctx context.Context, req *message.SendMe
 	})
 
 	service.Ticket().UpdateTicketByClient(ctx, tickerId)
-
-	return &message.SendMessageRes{}, err
+	return &message.SendMessageRes{
+		Id:         msg.Id,
+		CreateAt:   msg.CreateAt,
+		TicketId:   msg.TicketId,
+		Content:    msg.Content,
+		MsgType:    msg.MsgType,
+		SenderType: msg.SenderType,
+	}, err
 
 }
