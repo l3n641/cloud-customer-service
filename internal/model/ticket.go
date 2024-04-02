@@ -1,6 +1,9 @@
 package model
 
-import "github.com/gogf/gf/v2/os/gtime"
+import (
+	"cloudCustomerService/internal/model/entity"
+	"github.com/gogf/gf/v2/os/gtime"
+)
 
 // TicketSearchInput 搜索工单input
 type TicketSearchInput struct {
@@ -28,4 +31,9 @@ type TicketItem struct {
 	ChatSupportId    int         `json:"chat_support_id"`
 	LastMessageTime  *gtime.Time `json:"last_message_time"`
 	CsUnreadMsgCount string      `json:"cs_unread_msg_count"`
+}
+
+type TicketDetail struct {
+	Ticket *entity.Tickets
+	Client *entity.Clients
 }

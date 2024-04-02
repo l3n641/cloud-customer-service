@@ -8,7 +8,6 @@ import (
 	"context"
 	
 	"cloudCustomerService/api/chatSupport/account"
-	"cloudCustomerService/api/chatSupport/client"
 	"cloudCustomerService/api/chatSupport/message"
 	"cloudCustomerService/api/chatSupport/session"
 	"cloudCustomerService/api/chatSupport/ticket"
@@ -16,10 +15,6 @@ import (
 
 type IChatSupportAccount interface {
 	UserInfo(ctx context.Context, req *account.UserInfoReq) (res *account.UserInfoRes, err error)
-}
-
-type IChatSupportClient interface {
-	GetClientDetail(ctx context.Context, req *client.GetClientDetailReq) (res *client.GetClientDetailRes, err error)
 }
 
 type IChatSupportMessage interface {
@@ -33,6 +28,7 @@ type IChatSupportSession interface {
 }
 
 type IChatSupportTicket interface {
+	DetailTicket(ctx context.Context, req *ticket.DetailTicketReq) (res *ticket.DetailTicketRes, err error)
 	SearchTicket(ctx context.Context, req *ticket.SearchTicketReq) (res *ticket.SearchTicketRes, err error)
 }
 
