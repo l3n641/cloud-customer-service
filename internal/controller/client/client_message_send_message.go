@@ -43,7 +43,7 @@ func (c *ControllerMessage) SendMessage(ctx context.Context, req *message.SendMe
 		chatSupportId = ticket.ChatSupportId
 	}
 
-	service.Message().ClientSendMessage(ctx, &model.MessageAddInput{
+	service.Message().SendMessage(ctx, &model.MessageAddInput{
 		ClientId:      clientId,
 		ChatSupportId: chatSupportId,
 		Content:       req.Content,

@@ -19,6 +19,7 @@ type (
 		SearchTicket(ctx context.Context, in *model.TicketSearchInput) (*model.TicketSearchOutput, error)
 		UpdateTicketByClient(ctx context.Context, ticketId int) (int64, error)
 		UpdateTicketByChatSupport(ctx context.Context, ticketId int) (int64, error)
+		UpdateTicketLastMessageTimeByChatSupport(ctx context.Context, ticketId int) (int64, error)
 	}
 )
 

@@ -19,7 +19,7 @@ func New() *sMessage {
 	return &sMessage{}
 }
 
-func (s *sMessage) ClientSendMessage(ctx context.Context, in *model.MessageAddInput) (int64, error) {
+func (s *sMessage) SendMessage(ctx context.Context, in *model.MessageAddInput) (*entity.Messages, error) {
 
 	message := &entity.Messages{
 		TicketId:      in.TicketId,
@@ -30,6 +30,14 @@ func (s *sMessage) ClientSendMessage(ctx context.Context, in *model.MessageAddIn
 		RefererUrl:    in.RefererUrl,
 		MsgType:       in.MsgType,
 	}
-	result, _ := dao.Messages.Ctx(ctx).Data(message).Insert()
-	return result.LastInsertId()
+	result, err := dao.Messages.Ctx(ctx).Data().Insert(message)
+	if err != nil {
+		return nil, err
+	}
+	id, err := result.LastInsertId()
+	if err != nil {
+		return nil, err
+	}
+	return s.GetMessageById(ctx, id)
+
 }
