@@ -4,9 +4,11 @@ import (
 	"cloudCustomerService/internal/consts"
 	"cloudCustomerService/internal/middlewares"
 	"cloudCustomerService/internal/model/entity"
+	"cloudCustomerService/internal/service"
 	"context"
 	"fmt"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/os/gctx"
 	"github.com/gogf/gf/v2/util/gconv"
 	"strconv"
 	"time"
@@ -23,10 +25,12 @@ func (c *ControllerMessage) SubscriptionMsg(ctx context.Context, req *message.Su
 	r.Response.Header().Set("Connection", "keep-alive")
 	redisClient := g.Redis(consts.RedisMsgQueueName)
 	userId := gconv.Int(middlewares.ChatSupportAuth().GetIdentity(r.Context()))
-
+	service.ChatSupport().UpdateSessionInfo(ctx, userId, consts.ChatSupportOnline, r.GetRemoteIp())
 	for {
 		select {
 		case <-r.Context().Done():
+			ctx := gctx.New()
+			service.ChatSupport().UpdateSessionInfo(ctx, userId, consts.ChatSupportOutline, r.GetRemoteIp())
 			return
 		case <-time.After(1000 * time.Millisecond):
 			key := consts.ChatSupportQueueKey + strconv.Itoa(userId)
