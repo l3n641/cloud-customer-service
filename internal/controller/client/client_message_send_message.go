@@ -53,6 +53,10 @@ func (c *ControllerMessage) SendMessage(ctx context.Context, req *message.SendMe
 		RefererUrl:    req.RefererUrl,
 	})
 
+	if _, err := service.Message().PushChatSupportMessage(ctx, msg); err != nil {
+		return nil, err
+	}
+
 	service.Ticket().UpdateTicketByClient(ctx, tickerId)
 	return &message.SendMessageRes{
 		Id:         msg.Id,

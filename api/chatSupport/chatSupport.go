@@ -19,6 +19,7 @@ type IChatSupportAccount interface {
 
 type IChatSupportMessage interface {
 	GetMessageList(ctx context.Context, req *message.GetMessageListReq) (res *message.GetMessageListRes, err error)
+	SubscriptionMsg(ctx context.Context, req *message.SubscriptionMsgReq) (res *message.SubscriptionMsgRes, err error)
 	SendMessage(ctx context.Context, req *message.SendMessageReq) (res *message.SendMessageRes, err error)
 }
 
