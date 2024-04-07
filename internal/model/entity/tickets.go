@@ -16,4 +16,5 @@ type Tickets struct {
 	ChatSupportId    int         `json:"chatSupportId"    ` // 客服id
 	LastMessageTime  *gtime.Time `json:"lastMessageTime"  ` // 最后发送消息时间
 	CsUnreadMsgCount int         `json:"csUnreadMsgCount" ` // 客服未读消息数
+	Remark           string      `json:"remark"           ` // 备注
 }

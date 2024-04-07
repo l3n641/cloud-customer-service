@@ -31,6 +31,7 @@ type IChatSupportSession interface {
 type IChatSupportTicket interface {
 	DetailTicket(ctx context.Context, req *ticket.DetailTicketReq) (res *ticket.DetailTicketRes, err error)
 	SearchTicket(ctx context.Context, req *ticket.SearchTicketReq) (res *ticket.SearchTicketRes, err error)
+	UpdateTicketRemark(ctx context.Context, req *ticket.UpdateTicketRemarkReq) (res *ticket.UpdateTicketRemarkRes, err error)
 }
 
 

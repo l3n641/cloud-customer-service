@@ -19,6 +19,7 @@ type DetailTicketInfo struct {
 	Id              int         `json:"id"`
 	CreateAt        *gtime.Time `json:"create_at"`
 	LastMessageTime *gtime.Time `json:"last_message_time"`
+	Remark          string      `json:"remark"`
 }
 
 type ClientInfo struct {

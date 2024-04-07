@@ -26,6 +26,7 @@ type TicketsColumns struct {
 	ChatSupportId    string // 客服id
 	LastMessageTime  string // 最后发送消息时间
 	CsUnreadMsgCount string // 客服未读消息数
+	Remark           string // 备注
 }
 
 // ticketsColumns holds the columns for table tickets.
@@ -36,6 +37,7 @@ var ticketsColumns = TicketsColumns{
 	ChatSupportId:    "chat_support_id",
 	LastMessageTime:  "last_message_time",
 	CsUnreadMsgCount: "cs_unread_msg_count",
+	Remark:           "remark",
 }
 
 // NewTicketsDao creates and returns a new DAO object for table data access.

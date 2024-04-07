@@ -39,6 +39,7 @@ func (c *ControllerTicket) DetailTicket(ctx context.Context, req *ticket.DetailT
 		Id:              data.Ticket.Id,
 		CreateAt:        data.Ticket.CreateAt,
 		LastMessageTime: data.Ticket.LastMessageTime,
+		Remark:          data.Ticket.Remark,
 	}
 
 	return &ticket.DetailTicketRes{

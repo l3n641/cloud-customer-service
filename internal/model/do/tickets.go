@@ -18,4 +18,5 @@ type Tickets struct {
 	ChatSupportId    interface{} // 客服id
 	LastMessageTime  *gtime.Time // 最后发送消息时间
 	CsUnreadMsgCount interface{} // 客服未读消息数
+	Remark           interface{} // 备注
 }
