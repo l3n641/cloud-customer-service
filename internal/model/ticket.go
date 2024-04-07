@@ -30,7 +30,7 @@ type TicketItem struct {
 	ClientId         int         `json:"client_id"`
 	ChatSupportId    int         `json:"chat_support_id"`
 	LastMessageTime  *gtime.Time `json:"last_message_time"`
-	CsUnreadMsgCount string      `json:"cs_unread_msg_count"`
+	CsUnreadMsgCount int         `json:"cs_unread_msg_count"`
 }
 
 type TicketDetail struct {
