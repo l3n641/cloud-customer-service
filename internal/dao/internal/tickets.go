@@ -23,6 +23,7 @@ type TicketsColumns struct {
 	Id               string //
 	CreateAt         string //
 	ClientId         string // 客人id
+	Account          string // 客户的账号名
 	ChatSupportId    string // 客服id
 	LastMessageTime  string // 最后发送消息时间
 	CsUnreadMsgCount string // 客服未读消息数
@@ -34,6 +35,7 @@ var ticketsColumns = TicketsColumns{
 	Id:               "id",
 	CreateAt:         "create_at",
 	ClientId:         "client_id",
+	Account:          "account",
 	ChatSupportId:    "chat_support_id",
 	LastMessageTime:  "last_message_time",
 	CsUnreadMsgCount: "cs_unread_msg_count",

@@ -14,6 +14,7 @@ type SearchTicketReq struct {
 }
 
 type SearchFields struct {
+	Account string `json:"account" dc:"账号"`
 }
 
 type SearchTicketRes struct {

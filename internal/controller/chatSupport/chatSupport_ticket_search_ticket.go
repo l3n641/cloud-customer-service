@@ -17,8 +17,11 @@ func (c *ControllerTicket) SearchTicket(ctx context.Context, req *ticket.SearchT
 	userId := gconv.Int(middlewares.ChatSupportAuth().GetIdentity(request.Context()))
 	out, err := service.Ticket().SearchTicket(ctx, &model.TicketSearchInput{
 		ChatSupportId: userId,
-		Page:          req.Page,
-		Size:          req.PageSize,
+		SearchTicketFields: model.SearchTicketFields{
+			Account: req.Account,
+		},
+		Page: req.Page,
+		Size: req.PageSize,
 	})
 
 	return &ticket.SearchTicketRes{

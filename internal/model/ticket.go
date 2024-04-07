@@ -3,6 +3,7 @@ package model
 import (
 	"cloudCustomerService/internal/model/entity"
 	"github.com/gogf/gf/v2/os/gtime"
+	"time"
 )
 
 // TicketSearchInput 搜索工单input
@@ -14,14 +15,15 @@ type TicketSearchInput struct {
 }
 
 type SearchTicketFields struct {
+	Account string `json:"account" description:"账户"`
 }
 
 // TicketSearchOutput 查询列表结果
 type TicketSearchOutput struct {
-	List  []TicketItem `json:"list" description:"列表"`
-	Page  int          `json:"page" description:"分页码"`
-	Size  int          `json:"size" description:"分页数量"`
-	Total int          `json:"total" description:"数据总数"`
+	List  []*TicketItem `json:"list" description:"列表"`
+	Page  int           `json:"page" description:"分页码"`
+	Size  int           `json:"size" description:"分页数量"`
+	Total int           `json:"total" description:"数据总数"`
 }
 
 type TicketItem struct {
@@ -29,8 +31,9 @@ type TicketItem struct {
 	CreateAt         *gtime.Time `json:"create_at"`
 	ClientId         int         `json:"client_id"`
 	ChatSupportId    int         `json:"chat_support_id"`
-	LastMessageTime  *gtime.Time `json:"last_message_time"`
+	LastMessageTime  time.Time   `json:"last_message_time"`
 	CsUnreadMsgCount int         `json:"cs_unread_msg_count"`
+	Account          int         `json:"account"`
 }
 
 type TicketDetail struct {

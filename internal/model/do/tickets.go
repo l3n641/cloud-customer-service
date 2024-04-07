@@ -15,6 +15,7 @@ type Tickets struct {
 	Id               interface{} //
 	CreateAt         *gtime.Time //
 	ClientId         interface{} // 客人id
+	Account          interface{} // 客户的账号名
 	ChatSupportId    interface{} // 客服id
 	LastMessageTime  *gtime.Time // 最后发送消息时间
 	CsUnreadMsgCount interface{} // 客服未读消息数
