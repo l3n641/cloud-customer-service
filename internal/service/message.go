@@ -16,7 +16,7 @@ type (
 		GetMessageById(ctx context.Context, id int64) (*entity.Messages, error)
 		GetMessageList(ctx context.Context, in *model.MessageListInput) (*model.ClientMessageListOutput, error)
 		GetUnreadMessageQuantity(ctx context.Context, senderType, ticketId int) (int, error)
-		PushChatSupportMessage(ctx context.Context, messages *entity.Messages) (int64, error)
+		PushChatSupportMessage(ctx context.Context, messages *entity.Messages, ticket *entity.Tickets) (int64, error)
 		ReadMessage(ctx context.Context, ticketId, senderType int) (int64, error)
 		SendMessage(ctx context.Context, in *model.MessageAddInput) (*entity.Messages, error)
 	}

@@ -53,11 +53,14 @@ func (c *ControllerMessage) SendMessage(ctx context.Context, req *message.SendMe
 		RefererUrl:    req.RefererUrl,
 	})
 
-	if _, err := service.Message().PushChatSupportMessage(ctx, msg); err != nil {
+	service.Ticket().UpdateTicketByClient(ctx, tickerId)
+
+	ticket, _ = service.Ticket().GetById(ctx, tickerId)
+
+	if _, err := service.Message().PushChatSupportMessage(ctx, msg, ticket); err != nil {
 		return nil, err
 	}
 
-	service.Ticket().UpdateTicketByClient(ctx, tickerId)
 	return &message.SendMessageRes{
 		Id:         msg.Id,
 		CreateAt:   msg.CreateAt,

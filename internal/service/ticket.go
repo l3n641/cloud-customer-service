@@ -15,6 +15,7 @@ type (
 	ITicket interface {
 		CreateTicket(ctx context.Context, clientId int, chatSupportId int) (int, error)
 		GetDetail(ctx context.Context, id int) (*model.TicketDetail, error)
+		GetById(ctx context.Context, id int) (*entity.Tickets, error)
 		HasTicket(ctx context.Context, clientId int) (*entity.Tickets, error)
 		ChatSupportHasTicket(ctx context.Context, chatSupportId, ticketId int) (*entity.Tickets, error)
 		SearchTicket(ctx context.Context, in *model.TicketSearchInput) (*model.TicketSearchOutput, error)

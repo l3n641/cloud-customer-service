@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-func (s *sMessage) PushChatSupportMessage(ctx context.Context, messages *entity.Messages) (int64, error) {
+func (s *sMessage) PushChatSupportMessage(ctx context.Context, messages *entity.Messages, ticket *entity.Tickets) (int64, error) {
 
 	redisClient := g.Redis(consts.RedisMsgQueueName)
 	key := consts.ChatSupportQueueKey + strconv.Itoa(messages.ChatSupportId)
@@ -25,6 +25,16 @@ func (s *sMessage) PushChatSupportMessage(ctx context.Context, messages *entity.
 		IsRead:        messages.IsRead,
 		ReadTime:      messages.ReadTime,
 		RefererUrl:    messages.RefererUrl,
+		ChatSupportMessageTicketItem: model.ChatSupportMessageTicketItem{
+			Id:               ticket.Id,
+			CreateAt:         ticket.CreateAt,
+			ClientId:         ticket.ClientId,
+			Account:          ticket.Account,
+			ChatSupportId:    ticket.ChatSupportId,
+			LastMessageTime:  ticket.LastMessageTime,
+			CsUnreadMsgCount: ticket.CsUnreadMsgCount,
+			Remark:           ticket.Remark,
+		},
 	})
 
 }
