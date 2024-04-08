@@ -21,23 +21,23 @@ type ClientsDao struct {
 // ClientsColumns defines and stores column names for table clients.
 type ClientsColumns struct {
 	Id                  string //
-	CreateAt            string //
-	Email               string //
-	DialCode            string //
-	Phone               string //
-	MerchantId          string //
-	Domain              string //
-	LastLoginTime       string //
-	LastSendMessageTime string //
-	Ip                  string //
-	BrowserFingerprint  string //
-	Area                string //
-	UserAgent           string //
-	Lang                string //
-	Status              string //
-	IsOnline            string //
-	Iso2                string //
-	StatusChangeTime    string //
+	CreateAt            string // 创建时间
+	Email               string // 客人邮箱
+	DialCode            string // 电话区号
+	Phone               string // 电话号码
+	MerchantId          string // 商户id
+	Domain              string // 域名
+	LastLoginTime       string // 最后登录时间
+	LastSendMessageTime string // 最后发送消息时间
+	Ip                  string // 登录ip
+	BrowserFingerprint  string // 浏览器指纹
+	Area                string // 国家
+	UserAgent           string // 浏览器UA
+	Lang                string // 浏览器语言
+	Status              string // 账号状态 0-正常 1-被冻结
+	IsOnline            string // 在线状态 0-不在线 1-在线
+	Iso2                string // 国家区号
+	StatusChangeTime    string // 账号状态修改时间
 }
 
 // clientsColumns holds the columns for table clients.

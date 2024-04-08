@@ -8,6 +8,7 @@ import (
 	"context"
 	
 	"cloudCustomerService/api/chatSupport/account"
+	"cloudCustomerService/api/chatSupport/client"
 	"cloudCustomerService/api/chatSupport/message"
 	"cloudCustomerService/api/chatSupport/session"
 	"cloudCustomerService/api/chatSupport/ticket"
@@ -15,6 +16,10 @@ import (
 
 type IChatSupportAccount interface {
 	UserInfo(ctx context.Context, req *account.UserInfoReq) (res *account.UserInfoRes, err error)
+}
+
+type IChatSupportClient interface {
+	ManageClientAccountBan(ctx context.Context, req *client.ManageClientAccountBanReq) (res *client.ManageClientAccountBanRes, err error)
 }
 
 type IChatSupportMessage interface {

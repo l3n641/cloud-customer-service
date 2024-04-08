@@ -33,6 +33,7 @@ func (c *ControllerTicket) DetailTicket(ctx context.Context, req *ticket.DetailT
 		Area:               data.Client.Area,
 		UserAgent:          data.Client.UserAgent,
 		Lang:               data.Client.Lang,
+		Status:             data.Client.Status,
 	}
 
 	ticketInfo := ticket.DetailTicketInfo{

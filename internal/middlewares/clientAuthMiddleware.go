@@ -41,6 +41,16 @@ func init() {
 			claims := jwt.ExtractClaims(ctx)
 			return claims[identityKey]
 		},
+		Authorizator: func(clientId interface{}, ctx context.Context) bool {
+			client, err := service.Client().GetClientById(ctx, int(clientId.(float64)))
+			if err != nil || client == nil {
+				return false
+			}
+			if client.Status != 0 {
+				return false
+			}
+			return true
+		},
 	})
 	clientAuthService = auth
 }

@@ -31,3 +31,9 @@ func NewMessage() chatSupport.IChatSupportMessage {
 	return &ControllerMessage{}
 }
 
+type ControllerClient struct{}
+
+func NewClient() chatSupport.IChatSupportClient {
+	return &ControllerClient{}
+}
+

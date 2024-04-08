@@ -81,6 +81,7 @@ var (
 						chatSupport.NewSession().SignOut,
 						chatSupport.NewTicket(),
 						chatSupport.NewMessage(),
+						chatSupport.NewClient(),
 					)
 				})
 

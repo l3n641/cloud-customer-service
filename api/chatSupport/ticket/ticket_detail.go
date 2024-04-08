@@ -33,4 +33,5 @@ type ClientInfo struct {
 	Area               string `json:"area"`
 	UserAgent          string `json:"user_agent"`
 	Lang               string `json:"lang"`
+	Status             int    `json:"status"`
 }
