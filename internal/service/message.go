@@ -19,6 +19,7 @@ type (
 		PushChatSupportMessage(ctx context.Context, messages *entity.Messages, ticket *entity.Tickets) (int64, error)
 		ReadMessage(ctx context.Context, ticketId, senderType int) (int64, error)
 		SendMessage(ctx context.Context, in *model.MessageAddInput) (*entity.Messages, error)
+		UpdateMessageReadStatus(ctx context.Context, ticketId int, senderType int, msgIds []int) (int64, error)
 	}
 )
 

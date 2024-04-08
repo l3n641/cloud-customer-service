@@ -19,6 +19,7 @@ type (
 		HasTicket(ctx context.Context, clientId int) (*entity.Tickets, error)
 		ChatSupportHasTicket(ctx context.Context, chatSupportId, ticketId int) (*entity.Tickets, error)
 		SearchTicket(ctx context.Context, in *model.TicketSearchInput) (*model.TicketSearchOutput, error)
+		DecrementCsUnreadQuantity(ctx context.Context, ticketId int, quantity int64) (int64, error)
 		UpdateRemark(ctx context.Context, ticketId int, remark string) (int64, error)
 		UpdateTicketByClient(ctx context.Context, ticketId int) (int64, error)
 		UpdateTicketByChatSupport(ctx context.Context, ticketId int) (int64, error)
