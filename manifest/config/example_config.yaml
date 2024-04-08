@@ -13,7 +13,7 @@ database:
     level: "all"
     stdout: true
   default:
-    link: "mysql:root:root@tcp(127.0.0.1:3306)/could_customer_server"
+    link: "mysql:root:root@tcp(127.0.0.1:3306)/could_customer_server?loc=Local&parseTime=true"
     debug: true
 
 jwt:
