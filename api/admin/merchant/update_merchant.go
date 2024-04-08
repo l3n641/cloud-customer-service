@@ -5,7 +5,7 @@ import (
 )
 
 type UpdateMerchantReq struct {
-	g.Meta `path:"/merchant/{Id}" method:"put" summary:"更新商户" tags:"管理员管理商户"`
+	g.Meta `path:"/merchant/{Id}" method:"put" summary:"更新商户" tags:"管理员模块"`
 
 	Id           int    `json:"id" dc:"商户记录id"`
 	MerchantId   string `v:"required#请输入商户id" dc:"商户id"`

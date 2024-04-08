@@ -6,7 +6,7 @@ import (
 )
 
 type DetailChatSupportReq struct {
-	g.Meta `path:"/chat-support/{Id}" method:"get" summary:"获取客服详细信息" tags:"客服管理"`
+	g.Meta `path:"/chat-support/{Id}" method:"get" summary:"获取客服详细信息" tags:"管理员模块"`
 	Id     int `json:"id" dc:"客服id"`
 }
 

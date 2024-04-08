@@ -7,7 +7,7 @@ import (
 )
 
 type SearchChatSupportReq struct {
-	g.Meta `path:"/chat-support" method:"get" summary:"查看商户" tags:"客服管理"`
+	g.Meta `path:"/chat-support" method:"get" summary:"查看商户" tags:"管理员模块"`
 
 	SearchFields
 	api.PaginationReq

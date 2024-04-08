@@ -5,7 +5,7 @@ import (
 )
 
 type UpdateChatSupportReq struct {
-	g.Meta `path:"/chat-support/{Id}" method:"put" summary:"更新客服" tags:"客服管理"`
+	g.Meta `path:"/chat-support/{Id}" method:"put" summary:"更新客服" tags:"管理员模块"`
 
 	Id            int    `json:"id" dc:"客服id"`
 	Nickname      string `dc:"昵称"`

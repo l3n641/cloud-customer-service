@@ -6,7 +6,7 @@ import (
 )
 
 type SendMessageReq struct {
-	g.Meta `path:"/message" method:"post" summary:"客户发送消息" tags:"客户管理"`
+	g.Meta `path:"/message" method:"post" summary:"客户发送消息" tags:"客服模块"`
 
 	TicketId int    `v:"required" json:"ticket_id" dc:"工单id"`
 	Content  string `v:"required" json:"content" dc:"消息内容"`

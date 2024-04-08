@@ -5,7 +5,7 @@ import (
 )
 
 type UserInfoReq struct {
-	g.Meta `path:"/admin-info" method:"get" summary:"获取管理员账号信息" tags:"管理员简介管理"`
+	g.Meta `path:"/admin-info" method:"get" summary:"获取管理员账号信息" tags:"管理员模块"`
 }
 
 type UserInfoRes struct {

@@ -6,7 +6,7 @@ import (
 )
 
 type SearchTicketReq struct {
-	g.Meta `path:"/ticket" method:"get" summary:"查看工单" tags:"客服管理"`
+	g.Meta `path:"/ticket" method:"get" summary:"查看工单" tags:"客服模块"`
 
 	SearchFields
 	api.PaginationReq

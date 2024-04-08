@@ -5,7 +5,7 @@ import (
 )
 
 type CreateChatSupportReq struct {
-	g.Meta `path:"/chat-support" method:"post" summary:"创建客服" tags:"客服管理"`
+	g.Meta `path:"/chat-support" method:"post" summary:"创建客服" tags:"管理员模块"`
 
 	Email         string `v:"required#请输入邮箱" dc:"邮箱"`
 	Nickname      string `dc:"昵称"`

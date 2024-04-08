@@ -6,7 +6,7 @@ import (
 )
 
 type LoginReq struct {
-	g.Meta `path:"/session" method:"post" summary:"管理员账户登录" tags:"管理员账户管理"`
+	g.Meta `path:"/session" method:"post" summary:"管理员账户登录" tags:"管理员模块"`
 
 	Username string `v:"required#请输入用户名" dc:"用户名"`
 	Password string `v:"required#请输入密码" dc:"密码"`
@@ -18,7 +18,7 @@ type LoginRes struct {
 }
 
 type SignOutReq struct {
-	g.Meta `path:"/session" method:"delete" summary:"管理员账户退出登录" tags:"管理员账户管理"`
+	g.Meta `path:"/session" method:"delete" summary:"管理员账户退出登录" tags:"管理员模块"`
 }
 
 type SignOutRes struct {

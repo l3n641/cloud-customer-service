@@ -6,7 +6,7 @@ import (
 )
 
 type DetailTicketReq struct {
-	g.Meta `path:"/ticket/{Id}" method:"get" summary:"获取工单详细信息" tags:"客服管理"`
+	g.Meta `path:"/ticket/{Id}" method:"get" summary:"获取工单详细信息" tags:"客服模块"`
 	Id     int `json:"id" dc:"工单id"`
 }
 
