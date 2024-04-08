@@ -35,7 +35,14 @@ func (c *ControllerMessage) SendMessage(ctx context.Context, req *message.SendMe
 		}
 		chatSupportId = chatSupport.Id
 
-		if tickerId, err = service.Ticket().CreateTicket(ctx, clientId, chatSupport.Id); err != nil {
+		var account string
+		if client.Email != "" {
+			account = client.Email
+		} else {
+			account = client.Phone
+		}
+
+		if tickerId, err = service.Ticket().CreateTicket(ctx, clientId, chatSupport.Id, account); err != nil {
 			return nil, consts.ClientNotTicket
 		}
 	} else {

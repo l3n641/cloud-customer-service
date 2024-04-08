@@ -18,11 +18,12 @@ func New() *sTicket {
 	return &sTicket{}
 }
 
-func (s *sTicket) CreateTicket(ctx context.Context, clientId int, chatSupportId int) (int, error) {
+func (s *sTicket) CreateTicket(ctx context.Context, clientId int, chatSupportId int, account string) (int, error) {
 
 	ticket := &entity.Tickets{
 		ClientId:        clientId,
 		ChatSupportId:   chatSupportId,
+		Account:         account,
 		LastMessageTime: gtime.Now(),
 	}
 	result, _ := dao.Tickets.Ctx(ctx).Data(ticket).Insert()

@@ -13,7 +13,7 @@ import (
 
 type (
 	ITicket interface {
-		CreateTicket(ctx context.Context, clientId int, chatSupportId int) (int, error)
+		CreateTicket(ctx context.Context, clientId int, chatSupportId int, account string) (int, error)
 		GetDetail(ctx context.Context, id int) (*model.TicketDetail, error)
 		GetById(ctx context.Context, id int) (*entity.Tickets, error)
 		HasTicket(ctx context.Context, clientId int) (*entity.Tickets, error)
