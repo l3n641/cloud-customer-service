@@ -19,3 +19,16 @@ database:
 jwt:
   realm: cloud_customer_service
   secretKey: yhblsqtchblqqxmbdwwlc
+
+redis:
+  # 单实例配置示例1
+  default:
+    address: 127.0.0.1:6379
+    db:      1
+
+  msg-notification:
+    address:     127.0.0.1:6379
+    db:          2
+
+
+ipDb: D:\code\cloudCustomer\cloud_customer_service\resource\GeoLite2-Country.mmdb

@@ -8,6 +8,8 @@ import (
 	jwt "github.com/gogf/gf-jwt/v2"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gctx"
+	"github.com/oschwald/geoip2-golang"
+	"net"
 	"time"
 )
 
@@ -51,7 +53,15 @@ func ClientAuthenticator(ctx context.Context) (interface{}, error) {
 	if err := request.Parse(&req); err != nil {
 		return "", err
 	}
+	ipAddr := request.GetRemoteIp()
+	var area, iso2 string
+	ipDb, _ := g.Cfg().Get(ctx, "ipDb")
 
+	country, err := Ip2Country(ipDb.String(), ipAddr)
+	if country != nil {
+		area = country.Country.Names["zh-CN"]
+		iso2 = country.Country.IsoCode
+	}
 	loginOutput, err := service.Client().Login(ctx, &model.ClientLoginInput{
 		LoginType:          req.LoginType,
 		Email:              req.Email,
@@ -59,7 +69,9 @@ func ClientAuthenticator(ctx context.Context) (interface{}, error) {
 		Domain:             req.Domain,
 		MerchantId:         req.MerchantId,
 		BrowserFingerprint: req.BrowserFingerprint,
-		Ip:                 request.GetRemoteIp(),
+		Ip:                 ipAddr,
+		Area:               area,
+		Iso2:               iso2,
 		UserAgent:          request.Header.Get("User-Agent"),
 		Lang:               request.Header.Get("Accept-Language"),
 	},
@@ -69,4 +81,17 @@ func ClientAuthenticator(ctx context.Context) (interface{}, error) {
 
 	}
 	return loginOutput.Data, nil
+}
+
+func Ip2Country(dbPath, ipStr string) (region *geoip2.Country, err error) {
+	db, err := geoip2.Open(dbPath)
+	if err != nil {
+		return nil, err
+	}
+	defer db.Close()
+	ip := net.ParseIP(ipStr)
+	record, err := db.Country(ip)
+
+	return record, err
+
 }

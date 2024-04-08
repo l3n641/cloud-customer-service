@@ -12,6 +12,7 @@ type ClientLoginInput struct {
 	Ip                 string
 	BrowserFingerprint string
 	Area               string
+	Iso2               string
 	UserAgent          string
 	Lang               string
 }

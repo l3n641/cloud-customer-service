@@ -74,6 +74,8 @@ func (s *sClient) Login(ctx context.Context, in *model.ClientLoginInput) (*model
 		dao.Clients.Columns().LastLoginTime: gtime.Now(),
 		dao.Clients.Columns().UserAgent:     in.UserAgent,
 		dao.Clients.Columns().Lang:          in.Lang,
+		dao.Clients.Columns().Area:          in.Area,
+		dao.Clients.Columns().Iso2:          in.Iso2,
 	}).Where(g.Map{
 		dao.Clients.Columns().Id: userId,
 	}).Update()
