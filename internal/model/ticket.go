@@ -33,7 +33,7 @@ type TicketItem struct {
 	ChatSupportId    int         `json:"chat_support_id"`
 	LastMessageTime  time.Time   `json:"last_message_time"`
 	CsUnreadMsgCount int         `json:"cs_unread_msg_count"`
-	Account          int         `json:"account"`
+	Account          string      `json:"account"`
 }
 
 type TicketDetail struct {
