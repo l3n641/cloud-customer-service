@@ -15,6 +15,7 @@ type (
 	IMessage interface {
 		GetMessageById(ctx context.Context, id int64) (*entity.Messages, error)
 		GetMessageList(ctx context.Context, in *model.MessageListInput) (*model.ClientMessageListOutput, error)
+		ClientGetMessageList(ctx context.Context, in *model.ClientMessageListInput) (*model.ClientMessageListOutput, error)
 		GetUnreadMessageQuantity(ctx context.Context, senderType, ticketId int) (int, error)
 		PushChatSupportMessage(ctx context.Context, messages *entity.Messages, ticket *entity.Tickets) (int64, error)
 		ReadMessage(ctx context.Context, ticketId, senderType int) (int64, error)

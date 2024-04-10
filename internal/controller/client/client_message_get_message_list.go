@@ -20,11 +20,12 @@ func (c *ControllerMessage) GetMessageList(ctx context.Context, req *message.Get
 	if err != nil || ticket == nil {
 		return &message.GetMessageListRes{}, err
 	}
-	out, err := service.Message().GetMessageList(ctx, &model.MessageListInput{
+	out, err := service.Message().ClientGetMessageList(ctx, &model.ClientMessageListInput{
 		Page:          req.Page,
 		Size:          req.PageSize,
 		LastMessageId: req.LastMessageId,
 		TicketId:      ticket.Id,
+		OnlyUnread:    req.OnlyUnread,
 	})
 
 	service.Message().ReadMessage(ctx, ticket.Id, consts.SendMessageToClient)

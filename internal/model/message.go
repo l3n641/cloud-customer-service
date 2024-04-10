@@ -18,6 +18,14 @@ type MessageAddInput struct {
 	RefererUrl    string // 客户当前所在页面
 }
 
+type ClientMessageListInput struct {
+	Page          int // 分页号码
+	Size          int // 分页数量，最大100
+	TicketId      int // ticket id
+	LastMessageId gvar.Var
+	OnlyUnread    gvar.Var
+}
+
 // MessageListInput 消息列表
 type MessageListInput struct {
 	Page          int // 分页号码

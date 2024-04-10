@@ -10,6 +10,7 @@ type GetMessageListReq struct {
 	g.Meta `path:"/message" method:"get" summary:"查看消息列表" tags:"客户管理"`
 
 	LastMessageId gvar.Var `json:"last_message_id" description:"最后一条消息id"`
+	OnlyUnread    gvar.Var `json:"only_unread" description:"只获取未读消息"`
 	api.PaginationReq
 }
 
