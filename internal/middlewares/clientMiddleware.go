@@ -18,6 +18,9 @@ func (s *clientMiddlewareService) CORS(r *ghttp.Request) {
 }
 
 func (s *clientMiddlewareService) Auth(r *ghttp.Request) {
-	ClientAuth().MiddlewareFunc()(r)
+	action := r.Get("action")
+	if action.IsEmpty() || action.String() != "login" {
+		ClientAuth().MiddlewareFunc()(r)
+	}
 	r.Middleware.Next()
 }

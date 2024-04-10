@@ -58,6 +58,8 @@ var (
 					group.Bind(
 						client.NewMessage(),
 					)
+					group.POST("/api", client.NewApi().Router)
+
 				})
 
 			})
