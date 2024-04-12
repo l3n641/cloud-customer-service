@@ -34,6 +34,7 @@ type TicketItem struct {
 	LastMessageTime  time.Time   `json:"last_message_time"`
 	CsUnreadMsgCount int         `json:"cs_unread_msg_count"`
 	Account          string      `json:"account"`
+	Remark           string      `json:"remark"`
 }
 
 type TicketDetail struct {
