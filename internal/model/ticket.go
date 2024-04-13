@@ -15,7 +15,8 @@ type TicketSearchInput struct {
 }
 
 type SearchTicketFields struct {
-	Account string `json:"account" description:"账户"`
+	Account         string `json:"account" description:"账户"`
+	OnlyUnprocessed int    `json:"only_unprocessed" d:"1"  description:"只获取未处理的工单:0-获取全部,1-只查看未处理的"`
 }
 
 // TicketSearchOutput 查询列表结果

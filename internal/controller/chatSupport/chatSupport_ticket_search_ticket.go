@@ -18,7 +18,8 @@ func (c *ControllerTicket) SearchTicket(ctx context.Context, req *ticket.SearchT
 	out, err := service.Ticket().SearchTicket(ctx, &model.TicketSearchInput{
 		ChatSupportId: userId,
 		SearchTicketFields: model.SearchTicketFields{
-			Account: req.Account,
+			Account:         req.Account,
+			OnlyUnprocessed: req.OnlyUnprocessed,
 		},
 		Page: req.Page,
 		Size: req.PageSize,

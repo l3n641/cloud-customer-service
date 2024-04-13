@@ -14,7 +14,8 @@ type SearchTicketReq struct {
 }
 
 type SearchFields struct {
-	Account string `json:"account" dc:"账号"`
+	Account         string `json:"account" dc:"账号"`
+	OnlyUnprocessed int    `json:"only_unprocessed" d:"0"  description:"只获取未处理的工单:0-获取全部,1-只查看未处理的"`
 }
 
 type SearchTicketRes struct {

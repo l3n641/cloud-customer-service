@@ -25,6 +25,10 @@ func (s *sTicket) SearchTicket(ctx context.Context, in *model.TicketSearchInput)
 		query = query.WhereLike(dao.Tickets.Columns().Account, fmt.Sprintf("%%%s%%", in.SearchTicketFields.Account))
 	}
 
+	if in.SearchTicketFields.OnlyUnprocessed == 1 {
+		query = query.WhereGT(dao.Tickets.Columns().CsUnreadMsgCount, 0)
+	}
+
 	order := fmt.Sprintf("%s desc,%s desc", dao.Tickets.Columns().CsUnreadMsgCount, dao.Tickets.Columns().LastMessageTime)
 	err := query.Page(in.Page, in.Size).Order(order).ScanAndCount(&out.List, &out.Total, false)
 	return out, err
