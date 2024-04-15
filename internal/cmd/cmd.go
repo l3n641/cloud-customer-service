@@ -58,6 +58,7 @@ var (
 					)
 					group.Bind(
 						client.NewMessage(),
+						client.NewChatSupport(),
 					)
 					group.POST("/api", client.NewApi().Router)
 

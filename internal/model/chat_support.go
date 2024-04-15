@@ -78,3 +78,13 @@ type ChatSupportLoginInput struct {
 type ChatSupportLoginOutput struct {
 	Data g.Map
 }
+
+type IsOnlineChatSupport struct {
+	IsOnline int                `json:"is_online" description:"客服是否在线 0-不在线 1-在线"`
+	Messages []MessageTemplates `json:"messages" description:"消息模板列表"`
+}
+
+type MessageTemplates struct {
+	Lang    string `json:"lang" description:"语种"`
+	Content string `json:"content" description:"内容"`
+}
