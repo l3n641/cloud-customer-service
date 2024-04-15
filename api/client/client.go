@@ -7,9 +7,14 @@ package client
 import (
 	"context"
 	
+	"cloudCustomerService/api/client/chatSupport"
 	"cloudCustomerService/api/client/message"
 	"cloudCustomerService/api/client/session"
 )
+
+type IClientChatSupport interface {
+	IsOnlineChatSupport(ctx context.Context, req *chatSupport.IsOnlineChatSupportReq) (res *chatSupport.IsOnlineChatSupportRes, err error)
+}
 
 type IClientMessage interface {
 	GetMessageList(ctx context.Context, req *message.GetMessageListReq) (res *message.GetMessageListRes, err error)

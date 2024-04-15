@@ -37,6 +37,7 @@ var (
 						admin.NewMerchant(),
 						admin.NewChatSupport(),
 						admin.NewSession().SignOut,
+						admin.NewMessageTenplate(),
 					)
 				})
 			})

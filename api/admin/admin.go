@@ -10,6 +10,7 @@ import (
 	"cloudCustomerService/api/admin/account"
 	"cloudCustomerService/api/admin/chatSupport"
 	"cloudCustomerService/api/admin/merchant"
+	"cloudCustomerService/api/admin/messageTenplate"
 	"cloudCustomerService/api/admin/session"
 )
 
@@ -29,6 +30,14 @@ type IAdminMerchant interface {
 	DetailMerchant(ctx context.Context, req *merchant.DetailMerchantReq) (res *merchant.DetailMerchantRes, err error)
 	SearchMerchant(ctx context.Context, req *merchant.SearchMerchantReq) (res *merchant.SearchMerchantRes, err error)
 	UpdateMerchant(ctx context.Context, req *merchant.UpdateMerchantReq) (res *merchant.UpdateMerchantRes, err error)
+}
+
+type IAdminMessageTenplate interface {
+	CreateMessageTemplate(ctx context.Context, req *messageTenplate.CreateMessageTemplateReq) (res *messageTenplate.CreateMessageTemplateRes, err error)
+	DeleteMessageTemplate(ctx context.Context, req *messageTenplate.DeleteMessageTemplateReq) (res *messageTenplate.DeleteMessageTemplateRes, err error)
+	GetMessageTemplateDetail(ctx context.Context, req *messageTenplate.GetMessageTemplateDetailReq) (res *messageTenplate.GetMessageTemplateDetailRes, err error)
+	GetMessageTemplateList(ctx context.Context, req *messageTenplate.GetMessageTemplateListReq) (res *messageTenplate.GetMessageTemplateListRes, err error)
+	UpdateMessageTemplate(ctx context.Context, req *messageTenplate.UpdateMessageTemplateReq) (res *messageTenplate.UpdateMessageTemplateRes, err error)
 }
 
 type IAdminSession interface {
