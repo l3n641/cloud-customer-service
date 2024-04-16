@@ -17,6 +17,7 @@ type (
 		DeleteMessage(ctx context.Context, id int) (int64, error)
 		GetMessageDetail(ctx context.Context, id int) (*entity.MessageTemplates, error)
 		GetMessageList(ctx context.Context, in *model.MessageTemplateListInput) (*model.MessageTemplateListOutput, error)
+		GetWelcomeMessage(ctx context.Context) (*[]model.MessageTemplateItem, error)
 		UpdateMessageTemplate(ctx context.Context, id, msgType int, lang, content string) (int64, error)
 	}
 )
