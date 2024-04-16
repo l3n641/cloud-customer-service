@@ -24,7 +24,7 @@ func (s *sChatSupport) SearchChatSupport(ctx context.Context, in *model.ChatSupp
 	}
 
 	if in.IsOnline.String() != "" {
-		where.Set(dao.ChatSupports.Columns().IsOnline, in.Status.Int())
+		where.Set(dao.ChatSupports.Columns().IsOnline, in.IsOnline.Int())
 	}
 
 	query := dao.ChatSupports.Ctx(ctx).Where(where).Page(in.Page, in.Size)
