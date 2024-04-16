@@ -63,15 +63,21 @@ func ClientAuthenticator(ctx context.Context) (interface{}, error) {
 	if err := request.Parse(&req); err != nil {
 		return "", err
 	}
-	ipAddr := request.GetRemoteIp()
-	var area, iso2 string
-	ipDb, _ := g.Cfg().Get(ctx, "ipDb")
-
-	country, err := Ip2Country(ipDb.String(), ipAddr)
-	if country != nil {
-		area = country.Country.Names["zh-CN"]
-		iso2 = country.Country.IsoCode
+	var area, iso2, ipAddr string
+	if ipAddr = request.GetHeader("X-Forwarded-For"); ipAddr == "" {
+		ipAddr = request.GetHeader("X-Real-IP")
 	}
+
+	if ipAddr != "" {
+		ipDb, _ := g.Cfg().Get(ctx, "ipDb")
+
+		country, _ := Ip2Country(ipDb.String(), ipAddr)
+		if country != nil {
+			area = country.Country.Names["zh-CN"]
+			iso2 = country.Country.IsoCode
+		}
+	}
+
 	loginOutput, err := service.Client().Login(ctx, &model.ClientLoginInput{
 		LoginType:          req.LoginType,
 		Email:              req.Email,
