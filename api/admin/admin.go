@@ -23,6 +23,7 @@ type IAdminChatSupport interface {
 	SearchChatSupport(ctx context.Context, req *chatSupport.SearchChatSupportReq) (res *chatSupport.SearchChatSupportRes, err error)
 	CreateChatSupport(ctx context.Context, req *chatSupport.CreateChatSupportReq) (res *chatSupport.CreateChatSupportRes, err error)
 	UpdateChatSupport(ctx context.Context, req *chatSupport.UpdateChatSupportReq) (res *chatSupport.UpdateChatSupportRes, err error)
+	UpdateChatSupportStatus(ctx context.Context, req *chatSupport.UpdateChatSupportStatusReq) (res *chatSupport.UpdateChatSupportStatusRes, err error)
 }
 
 type IAdminMerchant interface {
