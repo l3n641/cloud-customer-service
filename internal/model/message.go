@@ -77,3 +77,8 @@ type ChatSupportMessageTicketItem struct {
 	CsUnreadMsgCount int         `json:"cs_unread_msg_count" ` // 客服未读消息数
 	Remark           string      `json:"remark"           `    // 备注
 }
+
+type ClientReadTicket struct {
+	TicketId int         `json:"ticket_id" description:"工单id"`
+	ReadTime *gtime.Time `json:"read_time" description:"读取消息的时间"`
+}

@@ -32,9 +32,11 @@ func (c *ControllerMessage) SubscriptionMsg(ctx context.Context, req *message.Su
 
 	messageTicker := time.NewTicker(1 * time.Second)
 	tickerTicker := time.NewTicker(60 * time.Second)
+	clientReadTicker := time.NewTicker(5 * time.Second)
 
 	defer messageTicker.Stop()
 	defer tickerTicker.Stop()
+	defer clientReadTicker.Stop()
 
 	for {
 		select {
@@ -78,6 +80,30 @@ func (c *ControllerMessage) SubscriptionMsg(ctx context.Context, req *message.Su
 			b, _ := json.Marshal(tickets)
 			r.Response.Writefln("event: unprocessed_tickets\ndata: %s\n", b)
 			r.Response.Flush()
+
+		case <-clientReadTicker.C:
+			key := consts.TicketQueueKey + strconv.Itoa(userId)
+			queueLen, err := redisClient.LLen(ctx, key)
+			if queueLen < 1 || err != nil {
+				continue
+			}
+			result, err := redisClient.LRange(ctx, key, 0, queueLen)
+			if err != nil {
+				continue
+			}
+
+			var messages []*model.ClientReadTicket
+			if err = result.Scan(&messages); err != nil {
+				continue
+			}
+			redisClient.LTrim(ctx, key, queueLen, -1)
+
+			b, _ := json.Marshal(messages)
+
+			r.Response.Writefln("event: client_read_message\ndata: %s\n", b)
+
+			r.Response.Flush()
+
 		}
 	}
 }
