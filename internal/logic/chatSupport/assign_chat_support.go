@@ -1,6 +1,7 @@
 package chatSupport
 
 import (
+	"cloudCustomerService/internal/consts"
 	"cloudCustomerService/internal/dao"
 	"cloudCustomerService/internal/model/entity"
 	"cloudCustomerService/internal/service"
@@ -19,6 +20,6 @@ func (s *sChatSupport) AssignChatSupport(ctx context.Context, merchantId string)
 
 	err = dao.ChatSupports.Ctx(ctx).LeftJoinOnFields(dao.MerchantGroup.Table(), dao.ChatSupports.Columns().Id, "=", dao.MerchantGroup.Columns().ChatSupportId).Where(
 		where,
-	).OrderDesc(dao.ChatSupports.Columns().IsOnline).Scan(&user)
+	).Where(dao.ChatSupports.Columns().Status, consts.ChatSupportActive).OrderDesc(dao.ChatSupports.Columns().IsOnline).Scan(&user)
 	return user, err
 }

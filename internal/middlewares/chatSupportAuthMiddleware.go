@@ -2,6 +2,7 @@ package middlewares
 
 import (
 	"cloudCustomerService/api/chatSupport/session"
+	"cloudCustomerService/internal/consts"
 	"cloudCustomerService/internal/model"
 	"cloudCustomerService/internal/service"
 	"context"
@@ -38,6 +39,16 @@ func init() {
 		IdentityHandler: func(ctx context.Context) interface{} {
 			claims := jwt.ExtractClaims(ctx)
 			return claims[identityKey]
+		},
+		Authorizator: func(clientId interface{}, ctx context.Context) bool {
+			user, err := service.ChatSupport().GetDetailById(ctx, int(clientId.(float64)))
+			if err != nil || user == nil {
+				return false
+			}
+			if user.Status == consts.ChatSupportInactive {
+				return false
+			}
+			return true
 		},
 	})
 	chatSupportAuthService = auth

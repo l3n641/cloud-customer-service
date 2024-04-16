@@ -1,6 +1,7 @@
 package chatSupport
 
 import (
+	"cloudCustomerService/internal/consts"
 	"cloudCustomerService/internal/dao"
 	"cloudCustomerService/internal/model"
 	"cloudCustomerService/internal/model/entity"
@@ -59,6 +60,7 @@ func (s *sChatSupport) CreteChatSupport(ctx context.Context, in *model.ChatSuppo
 		Email:    in.Email,
 		Password: s.encryptPassword(in.Password),
 		Nickname: in.NickName,
+		Status:   consts.ChatSupportActive,
 	}
 
 	result, err := dao.ChatSupports.Ctx(ctx).Data(user).Insert()
