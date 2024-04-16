@@ -32,3 +32,9 @@ func NewChatSupport() admin.IAdminChatSupport {
 	return &ControllerChatSupport{}
 }
 
+type ControllerMessageTenplate struct{}
+
+func NewMessageTenplate() admin.IAdminMessageTenplate {
+	return &ControllerMessageTenplate{}
+}
+

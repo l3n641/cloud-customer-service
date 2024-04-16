@@ -1,5 +1,5 @@
 // =================================================================================
-// Code generated and maintained by GoFrame CLI tool. DO NOT EDIT. 
+// Code generated and maintained by GoFrame CLI tool. DO NOT EDIT.
 // =================================================================================
 
 package client
@@ -18,5 +18,10 @@ type ControllerMessage struct{}
 
 func NewMessage() client.IClientMessage {
 	return &ControllerMessage{}
+}
+type ControllerChatSupport struct{}
+
+func NewChatSupport() client.IClientChatSupport {
+	return &ControllerChatSupport{}
 }
 

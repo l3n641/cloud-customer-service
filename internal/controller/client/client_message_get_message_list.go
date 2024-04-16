@@ -2,7 +2,6 @@ package client
 
 import (
 	"cloudCustomerService/api"
-	"cloudCustomerService/internal/consts"
 	"cloudCustomerService/internal/middlewares"
 	"cloudCustomerService/internal/model"
 	"cloudCustomerService/internal/service"
@@ -28,7 +27,7 @@ func (c *ControllerMessage) GetMessageList(ctx context.Context, req *message.Get
 		OnlyUnread:    req.OnlyUnread,
 	})
 
-	service.Message().ReadMessage(ctx, ticket.Id, consts.SendMessageToClient)
+	service.Message().ClientReadAllMessage(ctx, ticket.Id, ticket.ChatSupportId)
 
 	return &message.GetMessageListRes{
 		PaginationRes: api.PaginationRes{

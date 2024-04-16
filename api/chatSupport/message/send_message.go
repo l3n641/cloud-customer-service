@@ -21,4 +21,6 @@ type SendMessageRes struct {
 	SenderType int         `json:"sender_type" description:"发送类型 1-顾客发送给客服,2-客服发送给客人"`
 	MsgType    int         `json:"msg_type" description:"消息类型: 1-文本消息"`
 	Content    string      `json:"content" description:"消息内容"`
+	IsRead     int         `json:"is_read" description:"消息是否被对方读取:0-未读，1-已读"`
+	ReadTime   *gtime.Time `json:"read_time" description:"读取消息的时间"`
 }
